@@ -14,8 +14,15 @@ def gen_node_id():
 
 
 def to_dot_string(s):
-    # TODO convert to dot string without quotes
-    return s
+    result = ''
+    for x in s:
+        if x == '"':
+            result = result +'\\"'
+        elif x == '\\':
+            result = result + '\\\\'
+        else:
+            result = result + x
+    return result
 
 
 def tree2dot(node):
